@@ -1,7 +1,8 @@
 var head;
 var food;
-var extras = [];
+//var extras = [];
 var tail = [];
+var scale = 25;
 
 function moveSnek(vel) {
 	switch(vel) {
@@ -30,6 +31,8 @@ function moveSnek(vel) {
 var board = {
 	start : function() {
 		canvas = document.getElementById('canvas');
+		canvas.width = 250;
+		canvas.height = 250;
 		window.addEventListener('keydown', function(e) {
 			moveSnek(e.keyCode);
 		})
@@ -37,8 +40,8 @@ var board = {
 }
 
 function spawnExtras() { 
-	rx = Math.floor(Math.random()*30)*10;
-    	ry = Math.floor(Math.random()*30)*10;
+	rx = Math.floor(Math.random()*25)*10;
+    	ry = Math.floor(Math.random()*25)*10;
     	if(rx == head.getX() && ry == head.getY())
 		spawnExtras();
 	else extras.push(new component(rx,ry,10,10));
@@ -78,9 +81,9 @@ function component(x,y,w,h) {
     }
     this.update = function() {
 	document.getElementById('demo').innerHTML = x;
-	if(x < 0 || x > 290) {x -= velX; velX = 0;}
+	if(x < 0 || x > 240) {x -= velX; velX = 0;}
 	document.getElementById('test').innerHTML = y;
-	if(y < 0 || y > 290) {y -= velY; velY = 0;}
+	if(y < 0 || y > 240) {y -= velY; velY = 0;}
 	x += velX;
 	y += velY;
     }
@@ -140,8 +143,8 @@ function drawTail() {
 }
 
 function spawnFood() {
-	rx = Math.floor(Math.random()*30)*10;
-    ry = Math.floor(Math.random()*30)*10;
+	rx = Math.floor(Math.random()*25)*10;
+    ry = Math.floor(Math.random()*25)*10;
 		food = new component(rx,ry,10,10);
 	}
 
