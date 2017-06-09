@@ -39,8 +39,8 @@ var board = {
 }
 
 function spawnExtras() { 
-	rx = Math.floor(Math.random()*30)*10;
-    	ry = Math.floor(Math.random()*30)*10;
+	rx = Math.floor(Math.random()*25)*10;
+    	ry = Math.floor(Math.random()*25)*10;
     	if(rx == head.getX() && ry == head.getY())
 		spawnExtras();
 	else extras.push(new component(rx,ry,10,10));
