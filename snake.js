@@ -29,6 +29,9 @@ function moveSnek(vel) {
 
 var board = {
 	start : function() {
+		canvas = document.getElementById('canvas');
+		canvas.width = 250;
+		canvas.height = 250;
 		window.addEventListener('keydown', function(e) {
 			moveSnek(e.keyCode);
 		})
@@ -53,7 +56,7 @@ function startGame() {
 	board.start();
 	head = new component(0,0,10,10);
     	spawnFood();
-    	interval = setInterval(updateGame, 120);
+    	interval = setInterval(updateGame, 110);
 }
 
 function component(x,y,w,h) {
@@ -84,7 +87,7 @@ function component(x,y,w,h) {
 	y += velY;
     }
     this.draw = function() {
-			canvas = document.getElementById('canvas');
+	canvas = document.getElementById('canvas');
 	ctx = canvas.getContext('2d');
 	ctx.fillStyle = 'rgb(50,150,75)';
 	ctx.fillRect(x,y,w,h);
@@ -103,7 +106,7 @@ function eat() {
 	dx = Math.floor(Math.abs(food.getX()-head.getX()));
     	dy = Math.floor(Math.abs(food.getY()-head.getY()));
     if(dx < 10 && dy < 10) {
-	    for(var i = 0; i < 6; i++) addTail();
+	    for(var i = 0; i < 6; i++) { addTail(); }
 	spawnFood();
 	//spawnExtras();
     }
