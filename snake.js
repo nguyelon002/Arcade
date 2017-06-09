@@ -153,6 +153,7 @@ function ouroboros() {
 
 function gameOver() {
 	clearInterval(interval);
+	tail = [];
 	document.getElementById('tail').innerHTML = "GAMEOVER";
 }
 
