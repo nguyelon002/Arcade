@@ -30,8 +30,6 @@ function moveSnek(vel) {
 var board = {
 	start : function() {
 		canvas = document.getElementById('canvas');
-		canvas.width = 250;
-		canvas.height = 250;
 		window.addEventListener('keydown', function(e) {
 			moveSnek(e.keyCode);
 		})
@@ -39,8 +37,8 @@ var board = {
 }
 
 function spawnExtras() { 
-	rx = Math.floor(Math.random()*25)*10;
-    	ry = Math.floor(Math.random()*25)*10;
+	rx = Math.floor(Math.random()*30)*10;
+    	ry = Math.floor(Math.random()*30)*10;
     	if(rx == head.getX() && ry == head.getY())
 		spawnExtras();
 	else extras.push(new component(rx,ry,10,10));
