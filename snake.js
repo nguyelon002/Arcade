@@ -53,7 +53,7 @@ function startGame() {
 	board.start();
 	head = new component(0,0,10,10);
     	spawnFood();
-    	interval = setInterval(updateGame, 200);
+    	interval = setInterval(updateGame, 120);
 }
 
 function component(x,y,w,h) {
@@ -103,7 +103,7 @@ function eat() {
 	dx = Math.floor(Math.abs(food.getX()-head.getX()));
     	dy = Math.floor(Math.abs(food.getY()-head.getY()));
     if(dx < 10 && dy < 10) {
-	addTail();
+	    for(var i = 0; i < 6; i++) addTail();
 	spawnFood();
 	//spawnExtras();
     }
