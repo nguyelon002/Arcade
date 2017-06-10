@@ -60,6 +60,11 @@ function startGame() {
     	interval = setInterval(updateGame, 110);
 }
 
+function restartGame() {
+	clearInterval(Interval);
+	startGame();
+}
+
 function component(x,y,w,h) {
 	this.x = x;
 	this.y = y;
